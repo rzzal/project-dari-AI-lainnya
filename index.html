@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Kasir Sederhana</title>
+    <!-- Menghubungkan file HTML ke file CSS untuk gaya tampilan -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Judul Aplikasi -->
+    <header>
+        <h1>🛒 Kasir Toko Saya</h1>
+        <p>Aplikasi Kasir Offline Sederhana</p>
+    </header>
+
+    <!-- Kontainer Utama -->
+    <div class="container">
+        
+        <!-- Bagian Kiri: Daftar Produk -->
+        <section class="produk-section">
+            <h2>Daftar Produk</h2>
+            <div class="produk-grid">
+                <!-- Tombol-tombol produk akan ditambahkan secara otomatis lewat JavaScript,
+                     tetapi di bawah ini adalah contoh produk awal -->
+                <button class="btn-produk" onclick="tambahKeKeranjang('Minyak Goreng 1L', 18000)">
+                    <span class="nama-produk">Minyak Goreng 1L</span>
+                    <span class="harga-produk">Rp 18.000</span>
+                </button>
+                <button class="btn-produk" onclick="tambahKeKeranjang('Beras 5kg', 65000)">
+                    <span class="nama-produk">Beras 5kg</span>
+                    <span class="harga-produk">Rp 65.000</span>
+                </button>
+                <button class="btn-produk" onclick="tambahKeKeranjang('Gula Pasir 1kg', 15000)">
+                    <span class="nama-produk">Gula Pasir 1kg</span>
+                    <span class="harga-produk">Rp 15.000</span>
+                </button>
+                <button class="btn-produk" onclick="tambahKeKeranjang('Mie Instan', 3000)">
+                    <span class="nama-produk">Mie Instan</span>
+                    <span class="harga-produk">Rp 3.000</span>
+                </button>
+                <button class="btn-produk" onclick="tambahKeKeranjang('Teh Celup', 6000)">
+                    <span class="nama-produk">Teh Celup</span>
+                    <span class="harga-produk">Rp 6.000</span>
+                </button>
+                <button class="btn-produk" onclick="tambahKeKeranjang('Kopi Sachet', 2500)">
+                    <span class="nama-produk">Kopi Sachet</span>
+                    <span class="harga-produk">Rp 2.500</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Bagian Kanan: Keranjang Belanja & Pembayaran -->
+        <section class="kasir-section">
+            <h2>Keranjang Belanja</h2>
+            
+            <!-- Tabel Item Belanja -->
+            <table class="tabel-keranjang">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Harga</th>
+                        <th>Jumlah</th>
+                        <th>Total</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="daftar-keranjang">
+                    <!-- Baris barang belanjaan akan diisi secara dinamis oleh JavaScript -->
+                </tbody>
+            </table>
+
+            <!-- Ringkasan Pembayaran -->
+            <div class="ringkasan-bayar">
+                <div class="baris-ringkasan total-utama">
+                    <span>Total Belanja:</span>
+                    <span id="total-belanja">Rp 0</span>
+                </div>
+
+                <div class="baris-ringkasan">
+                    <label for="bayar-input">Uang Dibayar:</label>
+                    <input type="number" id="bayar-input" placeholder="Masukkan jumlah uang" oninput="hitungKembalian()">
+                </div>
+
+                <div class="baris-ringkasan kembalian">
+                    <span>Kembalian:</span>
+                    <span id="kembalian-text">Rp 0</span>
+                </div>
+
+                <!-- Tombol Aksi Transaksi -->
+                <button class="btn-selesai" onclick="selesaikanTransaksi()">Selesaikan Transaksi</button>
+                <button class="btn-reset" onclick="kosongkanKeranjang()">Kosongkan Keranjang</button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Menghubungkan file HTML ke file JavaScript untuk logika aplikasi -->
+    <script src="script.js"></script>
+</body>
+</html>
